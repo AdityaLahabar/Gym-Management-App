@@ -1,0 +1,78 @@
+.profile-container {
+  padding: 24px 16px;
+}
+
+.page-title {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.profile-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .profile-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.profile-card,
+.profile-form-card {
+  height: 100%;
+}
+
+.profile-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary);
+  color: white;
+}
+
+.profile-details {
+  margin-top: 24px;
+}
+
+.profile-detail-item {
+  padding: 16px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-label {
+  font-weight: 600;
+  color: var(--gray-600);
+}
+
+.detail-value {
+  font-weight: 500;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.password-section {
+  margin-top: 16px;
+}
+
+.password-section h3 {
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+  color: var(--gray-800);
+}
+
+.mat-mdc-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+}

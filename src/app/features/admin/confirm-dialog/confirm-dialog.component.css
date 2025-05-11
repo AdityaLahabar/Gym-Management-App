@@ -1,0 +1,12 @@
+.mat-mdc-dialog-title {
+  color: var(--gray-900);
+}
+
+.mat-mdc-dialog-content {
+  color: var(--gray-700);
+}
+
+.mat-mdc-dialog-actions {
+  justify-content: flex-end;
+  padding: 12px 24px 24px;
+}

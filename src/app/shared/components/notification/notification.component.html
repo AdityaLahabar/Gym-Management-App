@@ -1,0 +1,23 @@
+<div class="notification-container">
+  @for (notification of notifications(); track notification.id) {
+  <div
+    class="notification"
+    [ngClass]="getNotificationClass(notification)"
+    (click)="notificationService.removeNotification(notification.id)"
+    @fadeAnimation
+  >
+    <div class="notification-icon">
+      @switch (notification.type) { @case (NotificationType.SUCCESS) {
+      <span class="material-icons">check_circle</span>
+      } @case (NotificationType.ERROR) {
+      <span class="material-icons">error</span>
+      } @case (NotificationType.WARNING) {
+      <span class="material-icons">warning</span>
+      } @case (NotificationType.INFO) {
+      <span class="material-icons">info</span>
+      } }
+    </div>
+    <div class="notification-content">{{ notification.message }}</div>
+  </div>
+  }
+</div>

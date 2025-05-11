@@ -1,0 +1,195 @@
+.dashboard-container {
+  padding: 24px 16px;
+}
+
+.page-title {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.dashboard-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.stat-card {
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.stat-card .mat-mdc-card-content {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+}
+
+.stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-light);
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.stat-icon .mat-icon {
+  font-size: 32px;
+  height: 32px;
+  width: 32px;
+}
+
+.stat-info {
+  flex: 1;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--gray-900);
+  line-height: 1.2;
+}
+
+.stat-label {
+  color: var(--gray-600);
+  margin: 0;
+  font-size: 1rem;
+}
+
+.activity-card,
+.top-users-card {
+  overflow: hidden;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.active-badge {
+  background-color: var(--primary-light);
+  color: white;
+}
+
+.completed-badge {
+  background-color: var(--success);
+  color: white;
+}
+
+.no-data-message {
+  text-align: center;
+  padding: 24px;
+  color: var(--gray-600);
+}
+
+.top-users-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.top-user-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.top-user-rank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: white;
+  font-weight: 600;
+}
+
+.top-user-info {
+  flex: 1;
+}
+
+.top-user-name {
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.top-user-stats {
+  display: flex;
+  gap: 16px;
+  font-size: 0.8rem;
+  color: var(--gray-600);
+}
+
+.top-user-visits {
+  width: 30%;
+}
+
+.visits-bar {
+  height: 8px;
+  background-color: var(--gray-200);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.visits-fill {
+  height: 100%;
+  background-color: var(--primary);
+  border-radius: 4px;
+}
+
+@media (min-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .dashboard-content {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .activity-card {
+    grid-column: 1;
+  }
+
+  .top-users-card {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+}

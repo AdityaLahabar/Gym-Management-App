@@ -1,0 +1,86 @@
+.users-container {
+  padding: 24px 16px;
+}
+
+.page-title {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.users-card {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+
+.search-input {
+  flex: 3;
+  min-width: 250px;
+}
+
+.role-filter {
+  flex: 1;
+  min-width: 150px;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+}
+
+.role-badge {
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.admin-role {
+  background-color: var(--primary);
+  color: white;
+}
+
+.member-role {
+  background-color: var(--accent);
+  color: white;
+}
+
+.no-data-message {
+  text-align: center;
+  padding: 24px;
+  color: var(--gray-600);
+}
+
+@media (max-width: 768px) {
+  .filter-section {
+    flex-direction: column;
+  }
+
+  .search-input,
+  .role-filter {
+    width: 100%;
+  }
+
+  .table-container {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+}

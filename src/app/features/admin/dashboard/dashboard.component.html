@@ -1,0 +1,166 @@
+<div class="container dashboard-container">
+  <h1 class="page-title">Admin Dashboard</h1>
+
+  <div class="dashboard-content">
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+      <mat-card class="stat-card fade-in">
+        <mat-card-content>
+          <div class="stat-icon">
+            <mat-icon>people</mat-icon>
+          </div>
+          <div class="stat-info">
+            <h2 class="stat-value">{{ userCount }}</h2>
+            <p class="stat-label">Total Users</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="stat-card fade-in">
+        <mat-card-content>
+          <div class="stat-icon">
+            <mat-icon>admin_panel_settings</mat-icon>
+          </div>
+          <div class="stat-info">
+            <h2 class="stat-value">{{ adminCount }}</h2>
+            <p class="stat-label">Administrators</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="stat-card fade-in">
+        <mat-card-content>
+          <div class="stat-icon">
+            <mat-icon>checkin</mat-icon>
+          </div>
+          <div class="stat-info">
+            <h2 class="stat-value">{{ todayAttendanceCount }}</h2>
+            <p class="stat-label">Today's Check-ins</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="stat-card fade-in">
+        <mat-card-content>
+          <div class="stat-icon">
+            <mat-icon>calendar_today</mat-icon>
+          </div>
+          <div class="stat-info">
+            <h2 class="stat-value">{{ weeklyAttendanceCount }}</h2>
+            <p class="stat-label">Weekly Check-ins</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Recent Activity -->
+    <mat-card class="activity-card slide-up">
+      <mat-card-header>
+        <mat-card-title>Recent Activity</mat-card-title>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div class="loading-spinner" *ngIf="isLoading">
+          <mat-spinner diameter="40"></mat-spinner>
+        </div>
+
+        <table
+          mat-table
+          [dataSource]="recentAttendance"
+          *ngIf="!isLoading && recentAttendance.length > 0"
+        >
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let record">{{ record.userName }}</td>
+          </ng-container>
+
+          <!-- Membership Column -->
+          <ng-container matColumnDef="membership">
+            <th mat-header-cell *matHeaderCellDef>Membership #</th>
+            <td mat-cell *matCellDef="let record">
+              {{ record.membershipNumber }}
+            </td>
+          </ng-container>
+
+          <!-- Check In Column -->
+          <ng-container matColumnDef="checkIn">
+            <th mat-header-cell *matHeaderCellDef>Check In</th>
+            <td mat-cell *matCellDef="let record">
+              {{ record.checkInTime | date : "medium" }}
+            </td>
+          </ng-container>
+
+          <!-- Status Column -->
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let record">
+              <span
+                class="status-badge"
+                [class.active-badge]="!record.checkOutTime"
+                [class.completed-badge]="record.checkOutTime"
+              >
+                {{ record.checkOutTime ? "Completed" : "Active" }}
+              </span>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+
+        <div
+          class="no-data-message"
+          *ngIf="!isLoading && recentAttendance.length === 0"
+        >
+          <p>No recent activity to display.</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Top Users Card -->
+    <mat-card class="top-users-card slide-up">
+      <mat-card-header>
+        <mat-card-title>Top Members</mat-card-title>
+        <mat-card-subtitle>Based on attendance</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <div class="loading-spinner" *ngIf="isLoading">
+          <mat-spinner diameter="40"></mat-spinner>
+        </div>
+
+        <div class="top-users-list" *ngIf="!isLoading && topUsers.length > 0">
+          <div
+            class="top-user-item"
+            *ngFor="let user of topUsers; let i = index"
+          >
+            <div class="top-user-rank">{{ i + 1 }}</div>
+            <div class="top-user-info">
+              <div class="top-user-name">{{ user.userName }}</div>
+              <div class="top-user-stats">
+                <span class="stat">{{ user.totalCheckins }} check-ins</span>
+                <span class="stat">{{ user.averageStayDuration }} min avg</span>
+              </div>
+            </div>
+            <div class="top-user-visits">
+              <div class="visits-bar">
+                <div
+                  class="visits-fill"
+                  [style.width.%]="(user.totalCheckins / maxCheckins) * 100"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="no-data-message"
+          *ngIf="!isLoading && topUsers.length === 0"
+        >
+          <p>No user statistics available.</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,96 @@
+<div class="home-container">
+  <!-- Hero Banner -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <div class="hero-text slide-up">
+        <h1>Welcome to PowerFit Gym</h1>
+        <p class="hero-subtitle">
+          Your journey to a healthier lifestyle starts here
+        </p>
+        <div class="hero-actions">
+          <a
+            mat-raised-button
+            color="accent"
+            routerLink="/register"
+            *ngIf="!authService.isLoggedIn()"
+          >
+            Join Now
+          </a>
+          <a
+            mat-raised-button
+            color="primary"
+            routerLink="/attendance"
+            *ngIf="authService.isLoggedIn()"
+          >
+            Check In
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="container">
+      <h2 class="section-title">What We Offer</h2>
+
+      <div class="features-grid">
+        <mat-card class="feature-card fade-in">
+          <mat-icon class="feature-icon">fitness_center</mat-icon>
+          <h3>Modern Equipment</h3>
+          <p>
+            Access to the latest fitness equipment to help you achieve your
+            goals.
+          </p>
+        </mat-card>
+
+        <mat-card class="feature-card fade-in">
+          <mat-icon class="feature-icon">timer</mat-icon>
+          <h3>Flexible Hours</h3>
+          <p>Open 24/7 for your convenience. Work out on your schedule.</p>
+        </mat-card>
+
+        <mat-card class="feature-card fade-in">
+          <mat-icon class="feature-icon">groups</mat-icon>
+          <h3>Expert Trainers</h3>
+          <p>Get guidance from our certified personal trainers.</p>
+        </mat-card>
+
+        <mat-card class="feature-card fade-in">
+          <mat-icon class="feature-icon">spa</mat-icon>
+          <h3>Wellness Programs</h3>
+          <p>
+            Holistic approach to fitness including nutrition advice and wellness
+            coaching.
+          </p>
+        </mat-card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call To Action -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to transform your fitness journey?</h2>
+        <p>Join PowerFit Gym today and experience the difference.</p>
+        <a
+          mat-raised-button
+          color="accent"
+          routerLink="/register"
+          *ngIf="!authService.isLoggedIn()"
+        >
+          Sign Up Now
+        </a>
+        <a
+          mat-raised-button
+          color="primary"
+          routerLink="/attendance"
+          *ngIf="authService.isLoggedIn()"
+        >
+          Check Attendance
+        </a>
+      </div>
+    </div>
+  </section>
+</div>

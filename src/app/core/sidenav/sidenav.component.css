@@ -1,0 +1,27 @@
+.sidenav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+}
+
+.sidenav-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--primary);
+}
+
+.nav-section-title {
+  color: var(--gray-600);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 16px 16px 8px;
+}
+
+.mat-mdc-list-item.active {
+  background-color: var(--primary-light);
+  color: white;
+}
