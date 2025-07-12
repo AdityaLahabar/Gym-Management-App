@@ -1,6 +1,42 @@
 <div class="home-container">
   <!-- Hero Banner -->
-  <section class="hero-section">
+  <!-- <section class="hero-section">
+    <div class="container hero-content">
+      <div class="hero-text slide-up">
+        <h1>Welcome to PowerFit Gym</h1>
+        <p class="hero-subtitle">
+          Your journey to a healthier lifestyle starts here
+        </p>
+        <div class="hero-actions">
+          <a
+            mat-raised-button
+            color="accent"
+            routerLink="/register"
+            *ngIf="!authService.isLoggedIn()"
+          >
+            Join Now
+          </a>
+          <a
+            mat-raised-button
+            color="primary"
+            routerLink="/attendance"
+            *ngIf="authService.isLoggedIn()"
+          >
+            Check In
+          </a>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <section
+    class="hero-section"
+    [ngStyle]="{
+      'background-image':
+        'linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(' +
+        currentBackground +
+        ')'
+    }"
+  >
     <div class="container hero-content">
       <div class="hero-text slide-up">
         <h1>Welcome to PowerFit Gym</h1>
@@ -70,7 +106,10 @@
   <!-- Pricing plan section -->
   <section class="membership-section">
     <div class="membership-card cultpass-elite">
-      <img src="https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg" alt="Cultpass Elite" />
+      <img
+        src="https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg"
+        alt="Cultpass Elite"
+      />
       <h2>PowerFit <span>ELITE</span></h2>
       <ul>
         <li>At-center group classes</li>
@@ -85,7 +124,10 @@
     </div>
 
     <div class="membership-card cultpass-pro">
-      <img src="https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg" alt="Cultpass Pro" />
+      <img
+        src="https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg"
+        alt="Cultpass Pro"
+      />
       <h2>PowerFit <span>PRO</span></h2>
       <ul>
         <li>All PRO gyms</li>
@@ -99,7 +141,10 @@
     </div>
 
     <div class="membership-card cultpass-play">
-      <img src="https://images.pexels.com/photos/1431282/pexels-photo-1431282.jpeg" alt="Cultpass Play" />
+      <img
+        src="https://images.pexels.com/photos/1431282/pexels-photo-1431282.jpeg"
+        alt="Cultpass Play"
+      />
       <h2>PowerFit <span>PLAY</span></h2>
       <ul>
         <li>Badminton, swimming & other sports</li>
@@ -113,7 +158,10 @@
     </div>
 
     <div class="membership-card cultpass-select">
-      <img src="https://images.pexels.com/photos/136404/pexels-photo-136404.jpeg" alt="Cultpass Select" />
+      <img
+        src="https://images.pexels.com/photos/136404/pexels-photo-136404.jpeg"
+        alt="Cultpass Select"
+      />
       <h2>PowerFit <span>SELECT</span></h2>
       <ul>
         <li>One center that you choose</li>
@@ -129,27 +177,27 @@
 
   <!-- Call To Action -->
   <section class="cta-section">
-  <div class="container">
-    <div class="cta-content">
-      <h2>Ready to transform your fitness journey?</h2>
-      <p>Join PowerFit Gym today and experience the difference.</p>
-      <a
-        mat-raised-button
-        color="accent"
-        routerLink="/register"
-        *ngIf="!authService.isLoggedIn()"
-      >
-        Sign Up Now
-      </a>
-      <a
-        mat-raised-button
-        color="primary"
-        routerLink="/attendance"
-        *ngIf="authService.isLoggedIn()"
-      >
-        Check Attendance
-      </a>
+    <div class="container">
+      <div class="cta-content">
+        <h2>Ready to transform your fitness journey?</h2>
+        <p>Join PowerFit Gym today and experience the difference.</p>
+        <a
+          mat-raised-button
+          color="accent"
+          routerLink="/register"
+          *ngIf="!authService.isLoggedIn()"
+        >
+          Sign Up Now
+        </a>
+        <a
+          mat-raised-button
+          color="primary"
+          routerLink="/attendance"
+          *ngIf="authService.isLoggedIn()"
+        >
+          Check Attendance
+        </a>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 </div>
