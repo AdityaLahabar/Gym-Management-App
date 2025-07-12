@@ -1,0 +1,84 @@
+<div class="home-container">
+  <!-- Hero Banner -->
+  <section class="hero-section">
+    <div class="container hero-content">
+      <div class="hero-text slide-up">
+        <h1>Welcome to PowerFit Gym</h1>
+        <p class="hero-subtitle">
+          Your journey to a healthier lifestyle starts here
+        </p>
+        <div class="hero-actions">
+          <a
+            mat-raised-button
+            color="accent"
+            routerLink="/register"
+            *ngIf="!authService.isLoggedIn()"
+          >
+            Join Now
+          </a>
+          <a
+            mat-raised-button
+            color="primary"
+            routerLink="/attendance"
+            *ngIf="authService.isLoggedIn()"
+          >
+            Check In
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Workout Plan Section -->
+  <div class="workout-container">
+  <section class="workout-section">
+    <div class="container">
+      <h2 class="section-title">Weekly Workout Plan</h2>
+
+      <div class="week-grid">
+        <mat-card *ngFor="let workout of weeklyWorkout" class="workout-card fade-in">
+          <img mat-card-image [src]="workout.image" [alt]="workout.day + ' workout'" />
+          <mat-card-header>
+            <mat-icon class="workout-icon">event_note</mat-icon>
+            <mat-card-title>{{ workout.day }}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <ul>
+              <li *ngFor="let exercise of workout.exercises">
+                <strong>{{ exercise.name }}</strong> - {{ exercise.reps }}
+              </li>
+            </ul>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+  <!-- Call To Action -->
+ <section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <h2>Ready to transform your fitness journey?</h2>
+      <p>Join PowerFit Gym today and experience the difference.</p>
+      <a
+        mat-raised-button
+        color="accent"
+        routerLink="/register"
+        *ngIf="!authService.isLoggedIn()"
+      >
+        Sign Up Now
+      </a>
+      <a
+        mat-raised-button
+        color="primary"
+        routerLink="/attendance"
+        *ngIf="authService.isLoggedIn()"
+      >
+        Check Attendance
+      </a>
+    </div>
+  </div>
+</section>
+</div>

@@ -26,6 +26,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class HeaderComponent {
 
+
    @Output() toggleSidenav = new EventEmitter<void>();
   
   constructor(private authService: AuthService) {}
@@ -37,5 +38,12 @@ export class HeaderComponent {
   logout(): void {
     this.authService.logout();
   }
+
+  mobileMenuOpen: boolean = false;
+
+toggleMobileMenu(): void {
+  this.mobileMenuOpen = !this.mobileMenuOpen;
+}
+
 
 }

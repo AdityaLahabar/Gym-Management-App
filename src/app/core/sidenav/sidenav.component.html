@@ -26,6 +26,10 @@
   </ng-container>
 
   <ng-container *ngIf="isLoggedIn()">
+     <a mat-list-item routerLink="/workout" (click)="closeSidenav.emit()">
+      <mat-icon matListItemIcon>fitness_center</mat-icon>
+      <span matListItemTitle>Workout Plan</span>
+    </a>
     <a mat-list-item routerLink="/attendance" (click)="closeSidenav.emit()">
       <mat-icon matListItemIcon>checkin</mat-icon>
       <span matListItemTitle>Attendance</span>

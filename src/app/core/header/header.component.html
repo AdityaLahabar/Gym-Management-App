@@ -1,6 +1,7 @@
 <mat-toolbar color="primary" class="header">
   <div class="container header-container">
     <div class="logo-section">
+      <!-- 🔄 Keep your existing sidenav toggle -->
       <button
         mat-icon-button
         (click)="toggleSidenav.emit()"
@@ -8,54 +9,40 @@
       >
         <mat-icon>menu</mat-icon>
       </button>
+
       <a routerLink="/" class="logo">
         <span class="logo-text">PowerFit Gym</span>
       </a>
     </div>
 
-    <div class="nav-links">
+    <!-- 🔄 Add new button only for mobile nav links -->
+    <button
+      class="nav-toggle-button"
+      mat-icon-button
+      (click)="toggleMobileMenu()"
+    >
+      <mat-icon>{{ mobileMenuOpen ? 'close' : 'more_vert' }}</mat-icon>
+    </button>
+
+    <!-- 🔁 Apply mobile menu class toggle here -->
+    <div class="nav-links" [class.show]="mobileMenuOpen">
+      <!-- Your nav items here (unchanged) -->
       <ng-container *ngIf="!isLoggedIn()">
-        <a
-          mat-button
-          routerLink="/"
-          routerLinkActive="active-link"
-          [routerLinkActiveOptions]="{ exact: true }"
-          >Home</a
-        >
-        <a mat-button routerLink="/login" routerLinkActive="active-link"
-          >Login</a
-        >
-        <a mat-button routerLink="/register" routerLinkActive="active-link"
-          >Register</a
-        >
+        <a mat-button routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        <a mat-button routerLink="/login" routerLinkActive="active-link">Login</a>
+        <a mat-button routerLink="/register" routerLinkActive="active-link">Register</a>
       </ng-container>
 
       <ng-container *ngIf="isLoggedIn()">
-        <a
-          mat-button
-          routerLink="/"
-          routerLinkActive="active-link"
-          [routerLinkActiveOptions]="{ exact: true }"
-          >Home</a
-        >
-        <a mat-button routerLink="/attendance" routerLinkActive="active-link"
-          >Attendance</a
-        >
+        <a mat-button routerLink="/" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        <a mat-button routerLink="/workout" routerLinkActive="active-link">Workout</a>
+        <a mat-button routerLink="/attendance" routerLinkActive="active-link">Attendance</a>
 
         <ng-container *ngIf="isAdmin()">
-          <a
-            mat-button
-            routerLink="/admin/dashboard"
-            routerLinkActive="active-link"
-            >Admin</a
-          >
+          <a mat-button routerLink="/admin/dashboard" routerLinkActive="active-link">Admin</a>
         </ng-container>
 
-        <button
-          mat-button
-          [matMenuTriggerFor]="userMenu"
-          class="user-menu-button"
-        >
+        <button mat-button [matMenuTriggerFor]="userMenu" class="user-menu-button">
           <mat-icon>account_circle</mat-icon>
           <span *ngIf="user()">{{ user()?.name }}</span>
           <mat-icon>arrow_drop_down</mat-icon>

@@ -9,6 +9,8 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  flex-wrap: wrap;
+  position: relative;
 }
 
 .logo-section {
@@ -16,12 +18,20 @@
   align-items: center;
 }
 
+.menu-toggle {
+  display: inline-flex;
+  margin-right: 8px;
+}
+
+.nav-toggle-button {
+  display: none;
+}
+
 .logo {
   text-decoration: none;
   color: white;
   display: flex;
   align-items: center;
-  margin-left: 8px;
 }
 
 .logo-text {
@@ -33,6 +43,7 @@
 .nav-links {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
 .active-link {
@@ -42,18 +53,44 @@
 .user-menu-button {
   display: flex;
   align-items: center;
-}
-
-.user-menu-button .mat-icon:first-child {
-  margin-right: 8px;
+  gap: 4px;
 }
 
 @media (max-width: 768px) {
-  .nav-links a span {
+  .nav-toggle-button {
+    display: inline-flex;
+    margin-left: auto;
+  }
+
+  .nav-links {
     display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #3f51b5;
+    padding: 10px 0;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links a,
+  .nav-links button {
+    width: 100%;
+    justify-content: flex-start;
+    padding: 10px 16px;
+    color: white;
   }
 
   .logo-text {
     font-size: 1.2rem;
+  }
+
+  .user-menu-button span {
+    display: none;
   }
 }
