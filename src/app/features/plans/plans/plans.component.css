@@ -1,0 +1,137 @@
+.cultpass-section {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #111;
+  color: #fff;
+  padding: 40px;
+  justify-content: space-between;
+  border-radius: 12px;
+}
+
+.cultpass-left {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+}
+
+.cultpass-left h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.cultpass {
+  font-weight: 400;
+  color: white;
+}
+
+.elite {
+  font-weight: 700;
+  color: #f5c242;
+  margin-left: 5px;
+}
+
+.cultpass-left ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.cultpass-left ul li {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  position: relative;
+  padding-left: 24px;
+}
+
+.cultpass-left ul li::before {
+  content: "↻";
+  position: absolute;
+  left: 0;
+  color: #f5c242;
+}
+
+.price {
+  font-size: 1.2rem;
+  margin: 20px 0;
+}
+
+.btn-group {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.try-btn,
+.buy-btn {
+  padding: 10px 24px;
+  border: none;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.try-btn {
+  background-color: #2e2e2e;
+  color: #fff;
+}
+
+.buy-btn {
+  background-color: #ff4747;
+  color: #fff;
+}
+
+.note {
+  font-size: 0.8rem;
+  color: #bbb;
+}
+
+.cultpass-right {
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+  background: radial-gradient(circle, #260023, #000);
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  color: #fff;
+}
+
+.price-tag {
+  background-color: #ff5722;
+  color: #fff;
+  display: inline-block;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 8px;
+  transform: rotate(-5deg);
+  margin-top: 40px;
+}
+
+.price-tag h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.fitstart {
+  font-size: 3rem;
+  margin: 30px 0;
+  color: #f87171;
+}
+
+.qr-box {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  text-align: center;
+}
+
+.qr-box img {
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
+}
+
+.qr-box p {
+  font-size: 0.9rem;
+  color: #fff;
+}

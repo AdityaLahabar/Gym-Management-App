@@ -6,6 +6,7 @@
   color: white;
   padding: 100px 16px;
   text-align: center;
+  border-radius: 20px;
 }
 
 .hero-content {
@@ -82,34 +83,45 @@
 }
 
 .cta-section {
-  background-color: var(--primary-dark);
+  background-image: url('https://images.pexels.com/photos/28054/pexels-photo-28054.jpg'); /* 🔁 Change this path as needed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 60px 20px;
   color: white;
-  padding: 80px 16px;
   text-align: center;
+  position: relative;
+  border-radius: 20px;
 }
 
-.cta-content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 16px;
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0); /* Optional: overlay for text readability */
+  z-index: 1;
+}
+
+.cta-section .container {
+  position: relative;
+  z-index: 2;
 }
 
 .cta-content h2 {
-  font-size: 2.25rem;
-  margin-bottom: 16px;
-  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .cta-content p {
-  font-size: 1.25rem;
-  margin-bottom: 32px;
-  opacity: 0.9;
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
 }
 
 .cta-content a {
-  min-width: 140px;
-  text-align: center;
-  margin: 8px;
+  margin: 0 10px;
 }
 
 /* Tablet */
@@ -168,5 +180,89 @@
 
   .section-title {
     font-size: 1.5rem;
+  }
+}
+.membership-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: radial-gradient(circle, #3a0606, #000);
+  color: #fff;
+  margin-bottom: 3rem; /* Adjust the spacing as needed */
+  border-radius: 20px;
+}
+
+
+.membership-card {
+  background-color: #111;
+  border-radius: 16px;
+  width: 280px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.membership-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.membership-card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.membership-card span {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.6rem;
+  margin-left: 0.3rem;
+}
+
+.membership-card ul {
+  text-align: left;
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-dark {
+  background-color: #333;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-light {
+  background-color: white;
+  color: #ff4b5c;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .membership-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .membership-card {
+    width: 90%;
   }
 }

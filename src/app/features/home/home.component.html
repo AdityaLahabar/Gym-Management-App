@@ -67,30 +67,89 @@
       </div>
     </div>
   </section>
+  <!-- Pricing plan section -->
+  <section class="membership-section">
+    <div class="membership-card cultpass-elite">
+      <img src="https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg" alt="Cultpass Elite" />
+      <h2>PowerFit <span>ELITE</span></h2>
+      <ul>
+        <li>At-center group classes</li>
+        <li>All ELITE & PRO gyms</li>
+        <li>All pass</li>
+        <li>At-home live workouts</li>
+      </ul>
+      <div class="actions">
+        <button class="btn-light" routerLink="/plans">LEARN MORE</button>
+        <button class="btn-dark" routerLink="/plans">TRY FOR FREE</button>
+      </div>
+    </div>
 
-  <!-- Call To Action -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="cta-content">
-        <h2>Ready to transform your fitness journey?</h2>
-        <p>Join PowerFit Gym today and experience the difference.</p>
-        <a
-          mat-raised-button
-          color="accent"
-          routerLink="/register"
-          *ngIf="!authService.isLoggedIn()"
-        >
-          Sign Up Now
-        </a>
-        <a
-          mat-raised-button
-          color="primary"
-          routerLink="/attendance"
-          *ngIf="authService.isLoggedIn()"
-        >
-          Check Attendance
-        </a>
+    <div class="membership-card cultpass-pro">
+      <img src="https://images.pexels.com/photos/1229356/pexels-photo-1229356.jpeg" alt="Cultpass Pro" />
+      <h2>PowerFit <span>PRO</span></h2>
+      <ul>
+        <li>All PRO gyms</li>
+        <li>2 Sessions/month at ELITE gyms & group classes</li>
+        <li>At-home live workouts</li>
+      </ul>
+      <div class="actions">
+        <button class="btn-light" routerLink="/plans">LEARN MORE</button>
+        <button class="btn-dark" routerLink="/plans">TRY FOR FREE</button>
+      </div>
+    </div>
+
+    <div class="membership-card cultpass-play">
+      <img src="https://images.pexels.com/photos/1431282/pexels-photo-1431282.jpeg" alt="Cultpass Play" />
+      <h2>PowerFit <span>PLAY</span></h2>
+      <ul>
+        <li>Badminton, swimming & other sports</li>
+        <li>Guaranteed playing partner</li>
+        <li>Guided sessions with experts</li>
+      </ul>
+      <div class="actions">
+        <button class="btn-light" routerLink="/plans">LEARN MORE</button>
+        <button class="btn-dark" routerLink="/plans">TRY FOR FREE</button>
+      </div>
+    </div>
+
+    <div class="membership-card cultpass-select">
+      <img src="https://images.pexels.com/photos/136404/pexels-photo-136404.jpeg" alt="Cultpass Select" />
+      <h2>PowerFit <span>SELECT</span></h2>
+      <ul>
+        <li>One center that you choose</li>
+        <li>Limited sessions* in other centers & gyms in your city</li>
+        <li>At-home live workouts</li>
+      </ul>
+      <div class="actions">
+        <button class="btn-light" routerLink="/plans">LEARN MORE</button>
+        <button class="btn-dark" routerLink="/plans">TRY FOR FREE</button>
       </div>
     </div>
   </section>
+
+  <!-- Call To Action -->
+  <section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <h2>Ready to transform your fitness journey?</h2>
+      <p>Join PowerFit Gym today and experience the difference.</p>
+      <a
+        mat-raised-button
+        color="accent"
+        routerLink="/register"
+        *ngIf="!authService.isLoggedIn()"
+      >
+        Sign Up Now
+      </a>
+      <a
+        mat-raised-button
+        color="primary"
+        routerLink="/attendance"
+        *ngIf="authService.isLoggedIn()"
+      >
+        Check Attendance
+      </a>
+    </div>
+  </div>
+</section>
 </div>

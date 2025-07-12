@@ -16,6 +16,10 @@ export const routes: Routes = [
     canActivate: [authGuard],
     loadComponent: () => import('./features/workout/workout.component').then(c => c.WorkoutComponent)
   },
+   {
+    path: 'plans',
+    loadComponent: () => import('./features/plans/plans/plans.component').then(c => c.PlansComponent)
+  },
   {
     path: 'register',
     loadComponent: () => import('./features/auth/register/register.component').then(c => c.RegisterComponent)
