@@ -1,5 +1,5 @@
 <div class="container attendance-container">
-  <h1 class="page-title">Attendance</h1>
+  <h1 class="page-title">Attendances</h1>
 
   <div class="attendance-content">
     <!-- Check-in / Check-out Card -->
@@ -60,6 +60,56 @@
         <mat-progress-bar mode="indeterminate"></mat-progress-bar>
       </mat-card-footer>
     </mat-card>
+
+    <div *ngIf="userAttendance.length > 0" class="fade-in-table">
+      <mat-table [dataSource]="userAttendance" class="mat-elevation-z8">
+        <!-- Date Column -->
+        <ng-container matColumnDef="date">
+          <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{ element.checkInTime | date : "mediumDate" }}
+          </mat-cell>
+        </ng-container>
+
+        <!-- Check In Column -->
+        <ng-container matColumnDef="checkInTime">
+          <mat-header-cell *matHeaderCellDef>Check In</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{ element.checkInTime | date : "shortTime" }}
+          </mat-cell>
+        </ng-container>
+
+        <!-- Check Out Column -->
+        <ng-container matColumnDef="checkOutTime">
+          <mat-header-cell *matHeaderCellDef>Check Out</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{
+              element.checkOutTime
+                ? (element.checkOutTime | date : "shortTime")
+                : "Active"
+            }}
+          </mat-cell>
+        </ng-container>
+
+        <!-- Duration Column -->
+        <ng-container matColumnDef="duration">
+          <mat-header-cell *matHeaderCellDef>Duration</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            {{ calculateDuration(element) }}
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row
+          *matHeaderRowDef="['date', 'checkInTime', 'checkOutTime', 'duration']"
+        ></mat-header-row>
+        <mat-row
+          *matRowDef="
+            let row;
+            columns: ['date', 'checkInTime', 'checkOutTime', 'duration']
+          "
+        ></mat-row>
+      </mat-table>
+    </div>
 
     <!-- Attendance History and Stats -->
     <ng-container *ngIf="user()">

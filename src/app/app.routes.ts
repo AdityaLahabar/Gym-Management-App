@@ -48,6 +48,10 @@ export const routes: Routes = [
         loadComponent: () => import('./features/admin/dashboard/dashboard.component').then(c => c.DashboardComponent)
       },
       {
+        path: 'tracker',
+        loadComponent: () => import('./features/admin/tracker-attendance/tracker-attendance.component').then(c => c.TrackerAttendanceComponent)
+      },
+      {
         path: 'users',
         loadComponent: () => import('./features/admin/users/users.component').then(c => c.UsersComponent)
       },

@@ -52,6 +52,14 @@
         <mat-icon matListItemIcon>dashboard</mat-icon>
         <span matListItemTitle>Dashboard</span>
       </a>
+      <a
+        mat-list-item
+        routerLink="/admin/tracker"
+        (click)="closeSidenav.emit()"
+      >
+        <mat-icon matListItemIcon>checkin</mat-icon>
+        <span matListItemTitle>Attendance Tracker</span>
+      </a>
 
       <a mat-list-item routerLink="/admin/users" (click)="closeSidenav.emit()">
         <mat-icon matListItemIcon>group</mat-icon>

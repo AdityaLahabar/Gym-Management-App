@@ -29,6 +29,7 @@ import { Attendance, AttendanceStats } from '../../core/models/attendance.model'
     MatTableModule,
     MatProgressBarModule,
     MatDividerModule
+
   ],
   templateUrl: './attendance.component.html',
   styleUrl: './attendance.component.css',
