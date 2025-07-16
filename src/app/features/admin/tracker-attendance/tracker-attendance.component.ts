@@ -46,7 +46,7 @@ export class TrackerAttendanceComponent {
   todayAttendanceCount = 0;
   weeklyAttendanceCount = 0;
 
-  adminColumns: string[] = ['name', 'membershipNumber', 'checkInTime', 'checkOutTime', 'status'];
+  adminColumns: string[] = ['name', 'membershipNumber', 'checkInTime', 'checkOutTime','duration', 'status'];
 
   constructor(
     private authService: AuthService,
@@ -144,5 +144,23 @@ export class TrackerAttendanceComponent {
         this.notificationService.showError('Error: ' + (err.message || 'Unknown'));
       }
     });
+  }
+  calculateDuration(record: Attendance): string {
+    if (!record.checkOutTime) {
+      return 'Active';
+    }
+    
+    const checkIn = new Date(record.checkInTime).getTime();
+    const checkOut = new Date(record.checkOutTime).getTime();
+    const durationMs = checkOut - checkIn;
+    
+    const hours = Math.floor(durationMs / (1000 * 60 * 60));
+    const minutes = Math.floor((durationMs % (1000 * 60 * 60)) / (1000 * 60));
+    
+    if (hours > 0) {
+      return `${hours}h ${minutes}m`;
+    }
+    
+    return `${minutes}m`;
   }
 }

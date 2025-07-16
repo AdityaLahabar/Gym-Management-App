@@ -25,6 +25,22 @@ export class AttendanceService {
       membershipNumber: 'M001',
       checkInTime: new Date(Date.now() - 43200000).toISOString(),
       checkOutTime: new Date(Date.now() - 43200000 + 5400000).toISOString()
+    },
+    {
+      id: '3',
+      userId: '3',
+      userName: 'Aditya',
+      membershipNumber: 'A002',
+      checkInTime: new Date(Date.now() - 86400000).toISOString(),
+      checkOutTime: new Date(Date.now() - 86400000 + 3600000).toISOString()
+    },
+    {
+      id: '4',
+      userId: '4',
+      userName: 'Veer',
+      membershipNumber: 'M002',
+      checkInTime: new Date(Date.now() - 43200000).toISOString(),
+      checkOutTime: new Date(Date.now() - 43200000 + 5400000).toISOString()
     }
   ];
 
